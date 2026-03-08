@@ -117,12 +117,14 @@ const eventSchema = new Schema<IEvent>(
 eventSchema.pre("save", function (next) {
   // Generate slug only if title is new or modified
   if (this.isModified("title")) {
-    this.slug = this.title
+    const baseSlug = this.title
       .toLowerCase()
       .trim()
       .replace(/[^\w\s-]/g, "") // Remove special characters
       .replace(/\s+/g, "-") // Replace spaces with hyphens
       .replace(/-+/g, "-"); // Replace multiple hyphens with single hyphen
+    // Append timestamp to ensure uniqueness
+    this.slug = `${baseSlug}-${Date.now()}`;
   }
 
   // Normalize and validate date (ensure ISO format: YYYY-MM-DD)
