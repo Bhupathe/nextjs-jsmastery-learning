@@ -3,6 +3,7 @@ import ExploreBtn from '@/components/ExploreBtn';
 import EventCard from '@/components/EventCard';
 import Image from 'next/image';
 import events from '@/lib/constants';
+import FeaturedEventsTracker from '@/components/FeaturedEventsTracker';
 
 
 const Page = () => {
@@ -14,6 +15,7 @@ const Page = () => {
       <ExploreBtn />
 
       <div className='mt-20 space-y-7'>
+        <FeaturedEventsTracker />
         <h3>Featured Events</h3>
 
         <ul className='events'>
