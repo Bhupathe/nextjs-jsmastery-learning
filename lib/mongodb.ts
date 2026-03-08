@@ -1,12 +1,5 @@
 import mongoose, { Connection } from "mongoose";
 
-// MongoDB connection string from environment variables
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("MONGODB_URI is not defined in the environment variables.");
-}
-
 /**
  * Cached connection interface.
  * - `conn`: the active Mongoose connection, or null if not yet established.
@@ -42,6 +35,12 @@ globalThis.mongooseCache = cached;
  * Safe to call from any server-side context (API routes, server components, etc.).
  */
 async function connectToDatabase(): Promise<Connection> {
+  const MONGODB_URI = process.env.MONGODB_URI;
+
+  if (!MONGODB_URI) {
+    throw new Error("MONGODB_URI is not defined in the environment variables.");
+  }
+
   // Return the existing connection if it's ready
   if (cached.conn) {
     return cached.conn;
@@ -50,7 +49,7 @@ async function connectToDatabase(): Promise<Connection> {
   // Start a new connection attempt only if one isn't already in progress
   if (!cached.promise) {
     cached.promise = mongoose
-      .connect(MONGODB_URI as string, {
+      .connect(MONGODB_URI, {
         bufferCommands: false, // Fail fast instead of queuing when disconnected
       })
       .then((m) => m.connection);
