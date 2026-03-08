@@ -52,7 +52,12 @@ async function connectToDatabase(): Promise<Connection> {
       .connect(MONGODB_URI, {
         bufferCommands: false, // Fail fast instead of queuing when disconnected
       })
-      .then((m) => m.connection);
+      .then((m) => m.connection)
+      .catch((error) => {
+        cached.promise = undefined;
+        cached.conn = undefined;
+        throw error;
+      });
   }
 
   // Await the connection and cache it
