@@ -1,0 +1,26 @@
+[33mcommit 9b0713c04d2cb1cb7792673c7e1183b9527a0468[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: c0ffab5 83fd73c
+Author: Bhupathe <gbupathie2006@gmail.com>
+Date:   Sun Mar 8 09:42:17 2026 +0530
+
+    Merge pull request #1 from Bhupathe/implement-posthog
+    
+    Implement Posthog
+
+[33mcommit 83fd73c758b3363af20505c48a23680d89bcb5fe[m[33m ([m[1;31morigin/implement-posthog[m[33m, [m[1;32mimplement-posthog[m[33m)[m
+Author: G Bhupathe <gbupathie2006@gmail.com>
+Date:   Sun Mar 8 09:39:49 2026 +0530
+
+    Implement Posthog
+
+[33mcommit c0ffab5d93de33206d83bdf9f99f64434af572d9[m
+Author: G Bhupathe <gbupathie2006@gmail.com>
+Date:   Fri Mar 6 13:20:22 2026 +0530
+
+    frontend complete
+
+[33mcommit 40f22be2dcaa0903f403d680ddfae67c8e70e1cc[m
+Author: G Bhupathe <gbupathie2006@gmail.com>
+Date:   Thu Mar 5 09:01:00 2026 +0530
+
+    Initial commit from Create Next App
